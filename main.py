@@ -35,6 +35,10 @@ def main():
             if event.type == pygame.QUIT:
                 return
         updatables.update(dt)
+        for asteroid in asteroids:
+            if player.collision(asteroid):
+                print("Game over!")
+                raise SystemExit
         for drawable in drawables:
             drawable.draw(screen)
         pygame.display.flip()
